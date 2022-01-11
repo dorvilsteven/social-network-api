@@ -4,34 +4,34 @@ const { Schema, model } = require('mongoose');
 
 const UserSchema = new Schema(
     {
-        username:{
-            type:String,
-            required:true,
-            trim:true
+        username: {
+            type: String,
+            required: true,
+            trim: true
         },
-        email:{
-            type:String,
-            required:true,
-            unique:true,
-            match: [/.+@.+\..+/, 'Please enter a valid e-mail address']
+        email: {
+            type: String,
+            required: true,
+            unique: true,
+            match:  [/.+@.+\..+/, 'Please enter a valid e-mail address']
         },
-        thoughts:[
+        thoughts: [
             {
-                type:Schema.Types.ObjectId,
-                ref:'Thought'
+                type: Schema.Types.ObjectId,
+                ref: 'Thought'
             }
         ],
-        friends:[
+        friends: [
             {
-                type:Schema.Types.ObjectId,
-                ref:'User'
+                type: Schema.Types.ObjectId,
+                ref: 'User'
             }
         ]
     },
     {
-        toJSON:{
-            virtuals: true,
-            getters: true
+        toJSON: {
+            virtuals:  true,
+            getters:  true
         },
        
     }
